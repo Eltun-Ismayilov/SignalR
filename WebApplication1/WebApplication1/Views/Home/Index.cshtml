@@ -2,7 +2,48 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="container">
+    <div class="row mt-3" id="enterRow">
+        <form id="enterUserForm">
+            <div class="form-group">
+                <label for="UserName">UserName</label>
+                <input type="text" class="form-control" id="UserName" placeholder="UserName"  />
+            </div>
+            <div class="form-group">
+                <label for="selectedGroup">Select Group</label>
+                <select class="form-control" id="selectedGroup">
+                    <option>Gruop1</option>
+                    <option>Gruop2</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Enter Group</button>
+        </form>
+    </div>
+    <button type="submit" class="btn btn-danger mt-3 d-none" id="leaveBtn">Leave Group</button>
+
+    <div class="row mt-3 d-none" id="chatRol">
+
+        <div class="col-4">
+            <form id="messageForm">
+                <div class="form-group">
+                    <label for="messageText">Type here:</label>
+                    <textarea class="form-control" id="messageText" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-outline-success mt-3">Send message</button>
+            </form>
+        </div>
+        <div class="col-8">
+            <ul class="list-group" id="chatList">
+
+            </ul>
+        </div>
+
+    </div>
+
 </div>
+
+@section Scripts{
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+}
